@@ -1,0 +1,22 @@
+class Triangle():
+    def __init__(self, x1, y1 , x2, y2, x3, y3):
+        self.x1=x1
+        self.y1=y1
+        self.x2=x2
+        self.y2=y2
+        self.x3=x3
+        self.y3=y3
+    def perimetr(self):
+        self.a = ((self.x1 - self.x2)**2 + (self.y1 - self.y2)**2)**0.5
+        self.b = ((self.x1 - self.x3)**2 + (self.y1 - self.y3)**2)**0.5
+        self.c = ((self.x2 - self.x3)**2 + (self.y2 - self.y3)**2)**0.5
+        p=self.a+self.b+self.c
+        return p
+    def square(self):
+        p=0.5*self.perimetr()
+        s=(p*(p-self.a)*(p-self.b)*(p-self.c))**0.5
+treugolnik=Triangle(int(input()),int(input()),int(input()),int(input()),int(input()),int(input()))
+print(treugolnik.perimetr)
+print(treugolnik.square)
+
+#строка - вход в нейрон, а столбец - сам нейрон
