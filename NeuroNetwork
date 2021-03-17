@@ -1,0 +1,54 @@
+import numpy
+import matplotlib.pyplot
+import scipy.special
+class neuralNetwork:
+    #инициализировать нейронную сеть
+    def __init__(self, inputnodes, hidennodes, outputnodes, learningrate):
+        #задать кол-во узлов во входном, скрытом и выходном слое
+        self.inodes=inputnodes
+        self.hnodes=hidennodes
+        self.onodes=outputnodes
+        
+        #коэффициент обучения
+        self.lr=learningrate
+        
+        #Матрицы весовых коэффициентов связей wih (между входным и скрытым слоями) и who (между скрытым и выходным слоями)
+        #Весовые коэффициенты связей между узлом i и узлом j следующего слоя обозначены как w_i_j:
+        #w11 w21
+        #w12 w22 и т.д.
+        
+        self.wih=numpy.random.normal(0.0,pow(self.hnodes,-0.5),(self.hnodes,self.inodes))
+        self.who=numpy.random.normal(0.0,pow(self.onodes,-0.5),(self.onodes,self.hnodes))
+        pass
+    
+    #Тренировка нейронной сети
+    def train():
+        pass
+    
+    #Опрос нейронной сети
+    def query():
+        hidden_inputs=numpy.dot(self.wih,inputs)
+        #Использование сишмоиды в качестве функции активации
+        self.activation_function = lambda x:scipy.special.expit(x)
+        #рассчитать исходящие сигналы для скрытого слоя
+        hidden_outputs=self.activation_function(hidden_inputs)
+        #Рассчитать входящие сигналы для скрытого слоя 
+        hidden_inputs=numpy.dot(self.wih, inputs)
+        #Рассчитать исходящие сигналы для скрытого слоя
+        hidden_outputs=self.activation_function(hidden_inputs)
+        #Рассчитать входящие сигналы для выходного слоя
+        final_inputs=numpy.dot(self.who, hidden_outputs)
+        #Рассчитать исходящие сигналы для выходного слоя
+        final_outputs = self.activation_function(final_inputs)
+        pass
+    
+#кол-во входных, скрытых и выходных узлов    
+input_nodes=3
+hiden_nodes=3
+output_nodes=3
+
+#коэф обучения
+learning_rate=0.3
+
+#создать экземпляр нейронной сети
+n=neuralNetwork(input_nodes, hiden_nodes,output_nodes,learning_rate)
